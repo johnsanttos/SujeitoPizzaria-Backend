@@ -25,8 +25,8 @@ class AuthUserService {
     if (!passwordMatch) {
       throw new Error('Usuario ou senha invalida!')
     }
-
-	// gerar um token JWT e devolver os dados do usuario como id, name e email
+	//gerar um token JWT e devolver os dados do usuario como id, name e email
+	
 
     return { ok: true }
   }
