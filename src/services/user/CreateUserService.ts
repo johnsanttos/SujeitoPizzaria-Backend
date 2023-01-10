@@ -16,7 +16,7 @@ class CreateUserService {
       throw new Error('Email incorreto')
     }
 
-	// Verificar se email esta cadastradona plataforma
+	// Verificar se email esta cadastrado na plataforma findFirst: buscar o primeiro item que encontrar /where algum parametro que quero buscar no banco de dados
 	const userAlreadyExists = await prismaClient.user.findFirst({
 		where:{
 			email: email
@@ -30,6 +30,7 @@ class CreateUserService {
 
 	const passwordHash = await hash(password , 8)
 
+	// user.create cadastrar um item no banco de dados
 	const user =  await prismaClient.user.create({
 		data:{
 			name: name,
@@ -43,6 +44,8 @@ class CreateUserService {
 			email:true
 		}
 	})
+
+	// select:  o que eu quero devolver para o front
 
     return user
   }
