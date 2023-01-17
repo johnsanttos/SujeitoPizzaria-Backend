@@ -28,7 +28,7 @@ try{
 		process.env.JWT_SECRET
 	) as Payload;
 
-	//Recuperar o id do token e colocar dentro de uma variavel user_id dentro do req
+	//Recuperar o id do token e colocar dentro de uma variavel user_id dentro do req da aplica;'ao
 	req.user_id = sub;
 
 	return next();
