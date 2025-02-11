@@ -1,23 +1,13 @@
-import {Router} from 'express'
-import { CreateUserController } from './controllers/user/CreateUserController'
-import {AuthUserController} from './controllers/user/AuthUserController'
-import { DetailUserController } from './controllers/user/DetailUserController'
-import { isAuthenticated } from './controllers/middlewares/isAuthenticated'
-import CreateCategoryController from './controllers/category/CreateCategoryController'
+import { Router } from "express";
 
-const router = Router()
+import { CreateUserController } from "./controllers/user/CreatedUserController";
 
-// ROTAS USER
-router.post('/users',new CreateUserController().handle)
+//fronte-end chama a rota primeiro, depois chama o controler
 
-router.post('/session',new AuthUserController() .handle )
+const router =Router();
 
-router.get('/me', isAuthenticated , new DetailUserController().
-handle)
+//--ROTAS USER
+router.post('/users', new CreateUserController().handle)
 
-// Rotas de CATEGORY
 
-router.post('/category', isAuthenticated, new CreateCategoryController().handle)
-
-export {router} 
-
+export  {router}
