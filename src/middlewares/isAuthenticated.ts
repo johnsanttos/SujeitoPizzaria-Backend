@@ -26,6 +26,10 @@ return res.status(401).end();
         process.env.JWT_SECRET
     ) as Payload
 
+    // recuperar o id do token e colocar dentro de uma variavel user_id dentro o req: requeste
+    
+    req.user_id=sub
+
  return next ();
     
    } catch (err) {
