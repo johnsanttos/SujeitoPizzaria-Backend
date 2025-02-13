@@ -7,7 +7,7 @@ import { CreateUserService } from "../../services/user/CreateUserService";
 class CreateUserController{
     async handle (req: Request, res: Response) {
     
-    // req manda os dados da requisição enviada pelo frontEnd
+    // req manda os dados da requisição enviada pelo frontEnd para o seviço
     const {name,email,password} =req.body
      const createUserService = new CreateUserService()
 
