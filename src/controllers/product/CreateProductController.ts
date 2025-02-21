@@ -7,11 +7,18 @@ class CreateProductController{
 
         const {name,price,description,category_id} = req.body
 
-        let banner = req.body
 
         const createProductService = new CreateProductService()
 
-        const product = await createProductService.execute({
+        if(!req.file){
+            throw new Error("Imagem obrigatoria")
+        } //verifica se tem arquivo 
+        else{
+
+            const {originalname,filename : banner} = req.file
+
+            console.log(banner)
+            const product = await createProductService.execute({
                 name,
                 price,
                 description,
@@ -20,6 +27,10 @@ class CreateProductController{
                         })
 
         return res.json(product)    
+
+
+        }
+
 
     }
 }
