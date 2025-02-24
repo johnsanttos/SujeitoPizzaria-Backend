@@ -16,7 +16,7 @@ import  uploadConfig from './config/multer'
 
 const router =Router();
 
-const upload = multer(uploadConfig.upload('./tmp'));
+const upload = multer(uploadConfig.upload("./tmp"));
 
 //--ROTAS USER--
 router.post('/users', new CreateUserController().handle);
@@ -34,5 +34,9 @@ router.get('/category', isAuthenticated,new ListCategoryController().handle)
 //--ROTAS PRODUCT--
 
 router.post('/product', isAuthenticated, upload.single('file'), new CreateProductController().handle)
+
+
+router.get('/category/product', isAuthenticated, new ListCategoryController().handle)
+
 
 export  {router}
