@@ -3,6 +3,7 @@ import multer from "multer";
 import { CreateUserController } from "./controllers/user/CreatedUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
+import { CreateOrderController } from "./controllers/order/CreateOrderController";
 
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
@@ -37,6 +38,11 @@ router.post('/product', isAuthenticated, upload.single('file'), new CreateProduc
 
 
 router.get('/category/product', isAuthenticated, new ListCategoryController().handle)
+
+
+//--ROTAS ORDER--
+
+router.post('/order', isAuthenticated, new CreateOrderController().handle)
 
 
 export  {router}
