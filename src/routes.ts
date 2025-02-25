@@ -10,6 +10,7 @@ import { CreateCategoryController } from "./controllers/category/CreateCategoryC
 import { ListCategoryController } from "./controllers/category/ListCategoryController";
 import { CreateProductController } from "./controllers/product/CreateProductController";
 import  uploadConfig from './config/multer'
+import { RemoveOrderController } from "./controllers/CreateOrderController.ts/RemoveOrderController";
 
 
 //fronte-end chama a rota primeiro, depois chama o controler
@@ -44,5 +45,7 @@ router.get('/category/product', isAuthenticated, new ListCategoryController().ha
 
 router.post('/order', isAuthenticated, new CreateOrderController().handle)
 
+router.delete('/order', isAuthenticated, new RemoveOrderController().handle)
 
 export  {router}
+
