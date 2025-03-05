@@ -50,7 +50,7 @@ model Product {
 
   @@map("products")
   category_id String
-  item Item[]
+  items Item[]
 }
 
 
